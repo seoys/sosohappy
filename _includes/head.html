@@ -116,4 +116,6 @@
   <!-- Staticman -->
   <link rel="stylesheet" href="{{ "/assets/css/staticman.css" | relative_url }}">
   {% endif %}
+
+  {% if site.google_ad_client %}{% include google_analytics.html %}{% endif %} 
 </head>
