@@ -7,164 +7,148 @@ layout: base
 <div class="container-md">
   <div class="row">
     <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-      <!-- {% if page.gh-repo %} {% assign gh_split = page.gh-repo | split:'/' %} {%
-      assign gh_user = gh_split[0] %} {% assign gh_repo = gh_split[1] %}
-
-      <div id="header-gh-btns">
-        {% if page.gh-badge.size > 0 %} {% for badge in page.gh-badge %} {% case
-        badge %} {% when 'star'%}
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=star&count=true"
-          frameborder="0"
-          scrolling="0"
-          width="120px"
-          height="20px"
-        ></iframe>
-        {% when 'watch'%}
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=watch&v=2&count=true"
-          frameborder="0"
-          scrolling="0"
-          width="120px"
-          height="20px"
-        ></iframe>
-        {% when 'fork'%}
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=fork&count=true"
-          frameborder="0"
-          scrolling="0"
-          width="120px"
-          height="20px"
-        ></iframe>
-        {% when 'follow'%}
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&type=follow&count=true"
-          frameborder="0"
-          scrolling="0"
-          width="220px"
-          height="20px"
-        ></iframe>
-        {% endcase %} {% endfor %} {% endif %}
-      </div>
-      {% endif %} -->
-
-      <article role="main" class="blog-post">
-        {% if page.image %}
-        <div class="post-image">
+      <article role="main" class="portfolio-post">
+        <div class="portfolio-header">
+          {% if page.image %}
           <img
-            src="{{ page.image | relative_url }}"
+            src="{{ page.image }}"
             alt="{{ page.title }}"
-            class="img-fluid"
+            class="portfolio-image"
           />
-        </div>
-        {% endif %}
-
-        <!-- <div class="post-content">{{ content }}</div> -->
-
-        {% if page.project-info %}
-        <div class="project-details">
-          {% if page.project-period %}
-          <div class="project-period">
-            <h3>프로젝트 기간</h3>
-            <p>{{ page.project-period }}</p>
-          </div>
-          {% endif %} {% if page.project-role %}
-          <div class="project-role">
-            <h3>담당 역할</h3>
-            <p>{{ page.project-role }}</p>
-          </div>
-          {% endif %} {% if page.tech-stack %}
-          <div class="tech-stack">
-            <h3>사용 기술</h3>
-            <p>{{ page.tech-stack }}</p>
-          </div>
-          {% endif %} {% if page.project-description %}
-          <div class="project-description">
-            <h3>프로젝트 설명</h3>
-            <p>{{ page.project-description }}</p>
-          </div>
           {% endif %}
+
+          <div class="portfolio-meta">
+            {% if page.subtitle %}
+            <h2 class="portfolio-subtitle">{{ page.subtitle }}</h2>
+            {% endif %} {% if page.gh-badge.size > 0 %}
+            <div class="portfolio-tags">
+              {% for badge in page.gh-badge %}
+              <span class="badge badge-primary">{{ badge }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
         </div>
-        {% endif %}
+
+        <div class="portfolio-content">{{ content }}</div>
       </article>
 
       {% if page.tags.size > 0 %}
-      <div class="blog-tags">
-        Tags: {% if site.link-tags %} {% for tag in page.tags %}
-        <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
-        {% endfor %} {% else %} {{ page.tags | join: ", " }} {% endif %}
+      <div class="portfolio-categories">
+        <h3>관련 기술:</h3>
+        <div class="tag-list">
+          {% for tag in page.tags %}
+          <span class="tech-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
       </div>
-      {% endif %} {% if page.social-share %} {% include social-share.html %} {%
-      endif %}
+      {% endif %}
 
-      <ul class="pagination blog-pager">
+      <div class="portfolio-navigation">
         {% if page.previous.url %}
-        <li class="page-item previous">
-          <a
-            class="page-link"
-            href="{{ page.previous.url | relative_url }}"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="{{page.previous.title}}"
-            >&larr; Previous Post</a
-          >
-        </li>
+        <a href="{{ page.previous.url | relative_url }}" class="prev-project">
+          <span>&larr; 이전 프로젝트</span>
+          <small>{{ page.previous.title }}</small>
+        </a>
         {% endif %} {% if page.next.url %}
-        <li class="page-item next">
-          <a
-            class="page-link"
-            href="{{ page.next.url | relative_url }}"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="{{page.next.title}}"
-            >Next Post &rarr;</a
-          >
-        </li>
+        <a href="{{ page.next.url | relative_url }}" class="next-project">
+          <span>다음 프로젝트 &rarr;</span>
+          <small>{{ page.next.title }}</small>
+        </a>
         {% endif %}
-      </ul>
-      <!-- {% include comments.html %} -->
+      </div>
     </div>
   </div>
-  <div></div>
-  <!-- <div id="disqus_thread"></div>   -->
 </div>
 
-<script>
-  /**
-   *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-   *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-  /*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-  (function () {
-    // DON'T EDIT BELOW THIS LINE
-    var d = document,
-      s = d.createElement("script");
-    s.src = "https://sosohappy-1.disqus.com/embed.js";
-    s.setAttribute("data-timestamp", +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-<noscript
-  >Please enable JavaScript to view the
-  <a href="https://disqus.com/?ref_noscript"
-    >comments powered by Disqus.</a
-  ></noscript
->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=UA-2153870-2"
-></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
+<style>
+  .portfolio-post {
+    padding: 2rem 0;
   }
-  gtag("js", new Date());
 
-  gtag("config", "UA-2153870-2");
-</script>
+  .portfolio-header {
+    margin-bottom: 2rem;
+  }
+
+  .portfolio-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .portfolio-meta {
+    text-align: center;
+  }
+
+  .portfolio-subtitle {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-tags {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+  }
+
+  .portfolio-content {
+    line-height: 1.8;
+    margin: 2rem 0;
+  }
+
+  .portfolio-categories {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tech-tag {
+    background: #e9ecef;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+
+  .portfolio-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #dee2e6;
+  }
+
+  .prev-project,
+  .next-project {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #495057;
+  }
+
+  .prev-project:hover,
+  .next-project:hover {
+    color: #007bff;
+  }
+
+  .prev-project small,
+  .next-project small {
+    color: #6c757d;
+  }
+</style>
