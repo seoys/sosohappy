@@ -48,7 +48,45 @@ layout: base
       </div>
       {% endif %}
 
-      <article role="main" class="blog-post">{{ content }}</article>
+      <article role="main" class="blog-post">
+        {% if page.image %}
+        <div class="post-image">
+          <img
+            src="{{ page.image | relative_url }}"
+            alt="{{ page.title }}"
+            class="img-fluid"
+          />
+        </div>
+        {% endif %}
+
+        <div class="post-content">{{ content }}</div>
+
+        {% if page.project-info %}
+        <div class="project-details">
+          {% if page.project-period %}
+          <div class="project-period">
+            <h3>프로젝트 기간</h3>
+            <p>{{ page.project-period }}</p>
+          </div>
+          {% endif %} {% if page.project-role %}
+          <div class="project-role">
+            <h3>담당 역할</h3>
+            <p>{{ page.project-role }}</p>
+          </div>
+          {% endif %} {% if page.tech-stack %}
+          <div class="tech-stack">
+            <h3>사용 기술</h3>
+            <p>{{ page.tech-stack }}</p>
+          </div>
+          {% endif %} {% if page.project-description %}
+          <div class="project-description">
+            <h3>프로젝트 설명</h3>
+            <p>{{ page.project-description }}</p>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+      </article>
 
       {% if page.tags.size > 0 %}
       <div class="blog-tags">
