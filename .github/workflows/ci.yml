@@ -5,6 +5,22 @@ jobs:
     name: Build Jekyll
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3.22" # 또는 필요한 Ruby 버전
+          bundler-cache: true # 선택적: 번들러 캐시 사용
+
+      - name: Update RubyGems
+        run: |
+          gem update --system
+          gem --version
+
+      # 이후 필요한 gem 설치
+      - name: Install dependencies
+        run: |
+          gem install ffi
+          # 또는 bundle install
       - uses: actions/checkout@v2
       - name: Build the site in the jekyll/builder container
         run: |
