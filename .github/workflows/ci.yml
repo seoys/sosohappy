@@ -5,24 +5,7 @@ jobs:
     name: Build Jekyll
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3.0" # Ruby 버전 수정
-          bundler-cache: true
-
-      - name: Update RubyGems
-        run: |
-          gem update --system 3.4.22
-          gem --version
-
-      - name: Install dependencies
-        run: |
-          gem install ffi -v 1.17.0
-          bundle install
-
       - uses: actions/checkout@v2
-
       - name: Build the site in the jekyll/builder container
         run: |
           export JEKYLL_VERSION=3.8
