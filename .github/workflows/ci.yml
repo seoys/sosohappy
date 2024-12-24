@@ -8,20 +8,21 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3.6" # 또는 필요한 Ruby 버전
-          bundler-cache: true # 선택적: 번들러 캐시 사용
+          ruby-version: "3.3.0" # Ruby 버전 수정
+          bundler-cache: true
 
       - name: Update RubyGems
         run: |
-          gem update --system
+          gem update --system 3.4.22
           gem --version
 
-      # 이후 필요한 gem 설치
       - name: Install dependencies
         run: |
-          gem install ffi
-          # 또는 bundle install
+          gem install ffi -v 1.17.0
+          bundle install
+
       - uses: actions/checkout@v2
+
       - name: Build the site in the jekyll/builder container
         run: |
           export JEKYLL_VERSION=3.8
