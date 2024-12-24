@@ -38,12 +38,12 @@ round-avatar: true
 # If you don't want to show a link to an RSS feed, set rss to "false".
 social-network-links:
   email: "angelskying@gmail.com"
-  facebook: deanattali
-  github: daattali
-  twitter: daattali
-  rss: true
+  # facebook: deanattali
+  github: seoys
+  # twitter: daattali
+  # rss: true
   #  reddit: yourname
-  linkedin: daattali
+  linkedin: youngsik-seo-5b8884b3
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
