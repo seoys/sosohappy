@@ -77,8 +77,8 @@ layout: page
 <style>
   .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(2, 1fr); /* 2개의 열로 변경 */
+    gap: 2rem; /* 간격 조정 */
     padding: 3rem 0;
   }
 
@@ -208,5 +208,12 @@ layout: page
   .prev-page:hover,
   .next-page:hover {
     background: #2980b9;
+  }
+
+  /* 반응형 디자인 추가 */
+  @media (max-width: 768px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr; /* 모바일에서는 1열로 변경 */
+    }
   }
 </style>
