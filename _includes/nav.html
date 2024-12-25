@@ -53,15 +53,6 @@
     </ul>
   </div>
 
-  {% if page.image and (layout.show-avatar or page.show-avatar) %}
-  <div class="avatar-container">
-    <div class="avatar-img-border">
-      <a href="{{ '' | absolute_url }}">
-        <img alt="Navbar avatar" class="avatar-img" src="{{ relative_url }}" />
-      </a>
-    </div>
-  </div>
-  {% elsif site.avatar and (layout.show-avatar or page.show-avatar) %}
   <div class="avatar-container">
     <div class="avatar-img-border">
       <a href="{{ '' | absolute_url }}">
@@ -73,5 +64,4 @@
       </a>
     </div>
   </div>
-  {% endif %}
 </nav>
