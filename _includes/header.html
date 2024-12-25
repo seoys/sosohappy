@@ -4,16 +4,7 @@
 page.cover-img or page.title %} {% if page.cover-img %}
 <div
   id="header-big-imgs"
-  data-num-img="{%"
-  if
-  page.cover-img.first
-  %}{{
-  page.cover-img.size
-  }}{%
-  else
-  %}1{%
-  endif
-  %}
+  data-num-img="{% if page.cover-img.first %}{{ page.cover-img.size }}{% else %}1{% endif %}"
   {%
   for
   bigimg
@@ -79,7 +70,7 @@ page.cover-img or page.title %} {% if page.cover-img %}
             <span class="post-meta"
               >Posted on {{ page.date | date: date_format }}</span
             >
-            {% if page.readtime %} {% include readtime.html %} {% endif %} {%
+            {% if page.readtime %}{% include readtime.html %}{% endif %} {%
             endif %}
           </div>
         </div>
@@ -88,6 +79,7 @@ page.cover-img or page.title %} {% if page.cover-img %}
     <span class="img-desc"></span>
   </div>
   {% endif %}
+
   <div class="intro-header no-img">
     <div class="container-md">
       <div class="row">
@@ -107,7 +99,7 @@ page.cover-img or page.title %} {% if page.cover-img %}
             <span class="post-meta"
               >Posted on {{ page.date | date: date_format }}</span
             >
-            {% if page.readtime %} {% include readtime.html %} {% endif %} {%
+            {% if page.readtime %}{% include readtime.html %}{% endif %} {%
             endif %}
           </div>
         </div>
@@ -115,7 +107,6 @@ page.cover-img or page.title %} {% if page.cover-img %}
     </div>
   </div>
 </header>
-
 {% else %}
 <div class="intro-header"></div>
 {% endif %}
