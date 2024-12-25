@@ -9,6 +9,13 @@ layout: base
     <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
       <article role="main" class="portfolio-post">
         <div class="portfolio-header">
+          {% if page.image %}
+          <img
+            src="{{ page.image | relative_url }}"
+            alt="{{ page.title }}"
+            class="portfolio-image"
+          />
+          {% endif %}
           <div class="portfolio-meta">
             {% if page.subtitle %}
             <h2 class="portfolio-subtitle">{{ page.subtitle }}</h2>
