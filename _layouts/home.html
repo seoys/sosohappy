@@ -6,7 +6,10 @@ layout: page
 
 <div class="posts-list">
   {% for post in posts %}
-  <article class="post-preview" style="display: flex; align-items: center">
+  <article
+    class="post-preview"
+    style="display: flex; align-items: center; justify-content: center"
+  >
     {% if post.image %}
     <div class="post-image" style="flex: 0 0 200px; margin-right: 20px">
       <a href="{{ post.url | relative_url }}">
