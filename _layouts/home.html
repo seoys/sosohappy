@@ -2,7 +2,7 @@
 layout: page
 ---
 
-{{ content }} {% assign posts = paginator.posts | default: site.posts %}
+{{ content }} {% assign posts = site.posts %}
 
 <div class="portfolio-grid">
   {% for post in posts %}
