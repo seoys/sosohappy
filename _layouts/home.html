@@ -75,10 +75,17 @@ layout: page
 {% endif %}
 
 <style>
+  /* 폰트 설정 */
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
+
+  body {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
   .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2개의 열로 변경 */
-    gap: 2rem; /* 간격 조정 */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
     padding: 3rem 0;
   }
 
@@ -123,9 +130,10 @@ layout: page
 
   .portfolio-title h2 {
     font-size: 1.75rem;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0 0 0.75rem 0;
     line-height: 1.3;
+    letter-spacing: -0.02em;
   }
 
   .portfolio-subtitle {
@@ -133,12 +141,14 @@ layout: page
     font-size: 1.1rem;
     margin: 0 0 1.25rem 0;
     line-height: 1.5;
+    font-weight: 400;
   }
 
   .portfolio-meta {
     font-size: 0.95rem;
     color: #94a3b8;
     margin-bottom: 1.25rem;
+    font-weight: 300;
   }
 
   .portfolio-excerpt {
@@ -146,13 +156,14 @@ layout: page
     line-height: 1.6;
     color: #4a5568;
     margin-bottom: 1.5rem;
+    font-weight: 400;
   }
 
   .read-more {
     display: inline-block;
     color: #3498db;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.95rem;
     padding: 0.5rem 1rem;
     border: 2px solid #3498db;
@@ -181,6 +192,7 @@ layout: page
     text-decoration: none;
     transition: all 0.2s;
     border: 1px solid #e2e8f0;
+    font-weight: 300;
   }
 
   .tag:hover {
@@ -213,7 +225,7 @@ layout: page
   /* 반응형 디자인 추가 */
   @media (max-width: 768px) {
     .portfolio-grid {
-      grid-template-columns: 1fr; /* 모바일에서는 1열로 변경 */
+      grid-template-columns: 1fr;
     }
   }
 </style>
