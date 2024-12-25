@@ -6,12 +6,9 @@ layout: page
 
 <div class="posts-list">
   {% for post in posts %}
-  <article
-    class="post-preview"
-    style="display: flex; flex-direction: column; align-items: center"
-  >
+  <article class="post-preview" style="display: flex; align-items: flex-start">
     {% if post.image %}
-    <div class="post-image" style="margin-bottom: 20px">
+    <div class="post-image" style="flex: 0 0 200px; margin-right: 20px">
       <a href="{{ post.url | relative_url }}">
         <img
           src="{{ post.image | relative_url }}"
@@ -21,7 +18,7 @@ layout: page
     </div>
     {% endif %}
 
-    <div style="width: 100%; text-align: center">
+    <div style="flex: 1">
       <a href="{{ post.url | relative_url }}">
         <h2 class="post-title">{{ post.title }}</h2>
 
